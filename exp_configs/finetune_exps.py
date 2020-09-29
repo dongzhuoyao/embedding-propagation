@@ -32,9 +32,9 @@ resnet12 = {
 
 miniimagenet = {
     "dataset": "miniimagenet",
-    "dataset_train": "episodic_miniimagenet",
-    "dataset_val": "episodic_miniimagenet",
-    "dataset_test": "episodic_miniimagenet",
+    "dataset_train": "episodic_miniimagenet_pkl",#origin: episodic_miniimagenet
+    "dataset_val": "episodic_miniimagenet_pkl",#origin: episodic_miniimagenet
+    "dataset_test": "episodic_miniimagenet_pkl",#origin: episodic_miniimagenet
     "data_root": "mini-imagenet",
     "n_classes": 64
 }
@@ -83,7 +83,7 @@ for dataset in [miniimagenet, tiered_imagenet, cub]:
                                                         "val_iters": 600,
                                                         "test_iters": 1000,
                                                         "tasks_per_batch": 1,
-                                                        "pretrained_weights_root": "./logs/pretraining",
+                                                        "pretrained_weights_root": "./logs/pretraining-miniin-all",
 
                                                         # Model
                                                         "dropout": 0.1,

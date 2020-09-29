@@ -59,9 +59,9 @@ cub = {
 
 EXP_GROUPS = {"pretrain": []}
 
-for dataset in [miniimagenet, tiered_imagenet, cub]:
+for dataset in [miniimagenet]:#[miniimagenet, tiered_imagenet, cub]:
     for backbone in [conv4, resnet12, wrn]:
-        for lr in [0.2, 0.1]:
+        for lr in [0.1,0.2]:
             EXP_GROUPS['pretrain'] += [{"model": backbone,
 
                                         # Hardware
