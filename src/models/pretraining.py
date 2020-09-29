@@ -6,6 +6,7 @@ from src.tools.meters import BasicMeter
 from embedding_propagation import EmbeddingPropagation, LabelPropagation
 from .base_wrapper import BaseWrapper
 from src.modules.distances import prototype_distance
+from tqdm import tqdm
 
 class PretrainWrapper(BaseWrapper):
     """Trains a model using an episodic scheme on multiple GPUs"""
@@ -169,7 +170,7 @@ class PretrainWrapper(BaseWrapper):
         self.model.train()
         train_loss_meter = BasicMeter.get("train_loss").reset()
         # Iterate through tasks, each iteration loads n tasks, with n = number of GPU
-        for batch_idx, batch in enumerate(data_loader):
+        for batch_idx, batch in tqdm(enumerate(data_loader),total=len(data_loader),desc="train batch"):
             self.optimizer.zero_grad()
             loss = self.train_on_batch(batch)
             train_loss_meter.update(float(loss), 1)

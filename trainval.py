@@ -21,7 +21,7 @@ from haven import haven_utils as hu
 from haven import haven_results as hr
 from haven import haven_chk as hc
 from haven import haven_jupyter as hj
-
+from tqdm import tqdm
 
 def trainval(exp_dict, savedir_base, datadir, reset=False, 
             num_workers=0, pretrained_weights_dir=None):
@@ -135,7 +135,7 @@ def trainval(exp_dict, savedir_base, datadir, reset=False,
         s_epoch = 0
 
     # Run training and validation
-    for epoch in range(s_epoch, exp_dict["max_epoch"]):
+    for epoch in tqdm(range(s_epoch, exp_dict["max_epoch"]),desc="train epoch",total=s_epoch):
         score_dict = {"epoch": epoch}
         score_dict.update(model.get_lr())
         
