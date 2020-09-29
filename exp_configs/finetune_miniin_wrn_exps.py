@@ -57,16 +57,16 @@ cub = {
     "data_root": "CUB_200_2011"
 }
 
-EXP_GROUPS = {"finetune_fast": []}
+EXP_GROUPS = {"finetune_miniin_wrn": []}
 
 
 for dataset in [miniimagenet]:#[miniimagenet, tiered_imagenet, cub]:
-    for backbone in [conv4, resnet12, wrn]:
+    for backbone in [wrn]:#[conv4, resnet12, wrn]:
         for lr in [0.001]:#[0.01, 0.001]:
             for shot in [5]:#[1, 5]:
                     for train_iters in [600]:#[100, 600]:
                         for classification_weight in [0.1]:#[0, 0.1, 0.5]:
-                            EXP_GROUPS['finetune_fast'] += [{"model": backbone,
+                            EXP_GROUPS['finetune_miniin_wrn'] += [{"model": backbone,
                                                         
                                                         # Hardware
                                                         "ngpu": 2,
