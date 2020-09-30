@@ -57,16 +57,16 @@ cub = {
     "data_root": "CUB_200_2011"
 }
 
-EXP_GROUPS = {"finetune_miniin_wrn": []}
+EXP_GROUPS = {"finetune_miniin_resnet12": []}
 
 
 for dataset in [miniimagenet]:#[miniimagenet, tiered_imagenet, cub]:
-    for backbone in [wrn]:#[conv4, resnet12, wrn]:
+    for backbone in [resnet12]:#[conv4, resnet12, wrn]:
         for lr in [0.001]:#[0.01, 0.001]:
             for shot in [5]:#[1, 5]:
                     for train_iters in [600]:#[100, 600]:
                         for classification_weight in [0.1]:#[0, 0.1, 0.5]:
-                            EXP_GROUPS['finetune_miniin_wrn'] += [{"model": backbone,
+                            EXP_GROUPS['finetune_miniin_resnet12'] += [{"model": backbone,
                                                         
                                                         # Hardware
                                                         "ngpu": 2,
@@ -84,7 +84,7 @@ for dataset in [miniimagenet]:#[miniimagenet, tiered_imagenet, cub]:
                                                         "val_iters": 600,
                                                         "test_iters": 1000,
                                                         "tasks_per_batch": 1,
-                                                        "pretrained_weights_root": "./logs/pretraining-miniin-wrn",
+                                                        "pretrained_weights_root": "./logs/pretraining_miniin_resnet12",
 
                                                         # Model
                                                         "dropout": 0.1,
