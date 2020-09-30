@@ -53,7 +53,8 @@ If you have the `pkl` version of miniimagenet, you can still use it by setting t
 #### 1. Pre-training
 
 ```
-python3 trainval.py -e pretrain -sb ./logs/pretraining -d <datadir>
+python trainval.py -e pretrain -sb ./logs/pretraining -d <datadir>
+python trainval.py -e pretrain_miniin_resnet50 -sb ./logs/pretrain_miniin_resnet50 -d dataset_dir
 ```
 where `<datadir>` is the directory where the data is saved.
 

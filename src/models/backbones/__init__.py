@@ -8,5 +8,8 @@ def get_backbone(backbone_name, exp_dict):
         backbone = conv4.Conv4(exp_dict)
     elif backbone_name == "wrn":
         backbone = wrn.WideResNet(depth=exp_dict["model"]["depth"], width=exp_dict["model"]["width"], exp_dict=exp_dict)
-
+    elif backbone_name == 'resnet50':
+        from src.models.backbones.pytorch_backbone import resnet50
+        backbone = resnet50(dropout=exp_dict["dropout"])
+    else:raise
     return backbone
