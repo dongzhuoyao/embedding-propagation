@@ -55,6 +55,8 @@ If you have the `pkl` version of miniimagenet, you can still use it by setting t
 ```
 python trainval.py -e pretrain -sb ./logs/pretraining -d <datadir>
 python trainval.py -e pretrain_miniin_resnet50 -sb ./logs/pretrain_miniin_resnet50 -d dataset_dir
+python trainval.py -e pretrain_miniin_densenet121 -sb ./logs/pretrain_miniin_densenet121 -d dataset_dir
+python trainval.py -e pretrain_miniin_wrn50_2 -sb ./logs/pretrain_miniin_wrn50_2 -d dataset_dir
 ```
 where `<datadir>` is the directory where the data is saved.
 
@@ -64,6 +66,7 @@ In `exp_configs/finetune_exps.py`, set `"pretrained_weights_root": ./logs/pretra
 
 ```
 python3 trainval.py -e finetune -sb ./logs/finetuning -d <datadir>
+python trainval.py -e  finetune_miniin_wrn -sb ./logs/finetune_miniin_wrn -d dataset_dir
 ```
 
 #### 3. SSL experirments with 100 unlabeled
