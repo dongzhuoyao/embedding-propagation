@@ -22,6 +22,7 @@ from haven import haven_results as hr
 from haven import haven_chk as hc
 from haven import haven_jupyter as hj
 from tqdm import tqdm
+from pytorchgo.utils import logger
 
 def trainval(exp_dict, savedir_base, datadir, reset=False, 
             num_workers=0, pretrained_weights_dir=None):
@@ -31,6 +32,7 @@ def trainval(exp_dict, savedir_base, datadir, reset=False,
     # get experiment directory
     exp_id = hu.hash_dict(exp_dict)
     savedir = os.path.join(savedir_base, exp_id)
+    logger.auto_set_dir(savedir)
 
     if reset:
         # delete and backup experiment
@@ -40,7 +42,7 @@ def trainval(exp_dict, savedir_base, datadir, reset=False,
     os.makedirs(savedir, exist_ok=True)
     hu.save_json(os.path.join(savedir, 'exp_dict.json'), exp_dict)
     pprint.pprint(exp_dict)
-    print('Experiment saved in %s' % savedir)
+    logger.warning('Experiment saved in %s' % savedir)
 
     # load datasets
     # ==========================
@@ -151,12 +153,12 @@ def trainval(exp_dict, savedir_base, datadir, reset=False,
 
         # Report
         score_df = pd.DataFrame(score_list)
-        print(score_df.tail())
+        logger.info(score_df.tail())
 
         # Save checkpoint
         hu.save_pkl(score_list_path, score_list)
         hu.torch_save(checkpoint_path, model.get_state_dict())
-        print("Saved: %s" % savedir)
+        logger.info("Saved: %s" % savedir)
 
         if "accuracy" in exp_dict["target_loss"]:
             is_best = score_dict[exp_dict["target_loss"]] >= score_df[exp_dict["target_loss"]][:-1].max() 
@@ -167,10 +169,11 @@ def trainval(exp_dict, savedir_base, datadir, reset=False,
         if is_best:
             hu.save_pkl(os.path.join(savedir, "score_list_best.pkl"), score_list)
             hu.torch_save(os.path.join(savedir, "checkpoint_best.pth"), model.get_state_dict())
-            print("Saved Best: %s" % savedir)  
+            logger.info("Saved Best: %s" % savedir)
         
         # Check for end of training conditions
         if model.is_end_of_training():
+            logger.warning("satisfy ending condition, training ends.")
             break
 
 
