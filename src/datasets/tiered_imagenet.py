@@ -32,8 +32,7 @@ class NonEpisodicTieredImagenet(Dataset):
         self.rotation_labels = rotation_labels
         with open(img_path, 'rb') as infile:
             self.features = pkl.load(infile, encoding="bytes")
-        with open(label_path, 'rb') as infile:
-            self.labels = pkl.load(infile, encoding="bytes")[b'label_specific']
+        self.labels = pkl.load(open(label_path, 'rb'))['label_specific']
 
     def next_run(self):
         pass

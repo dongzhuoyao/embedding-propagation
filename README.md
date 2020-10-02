@@ -57,6 +57,8 @@ python trainval.py -e pretrain -sb ./logs/pretraining -d <datadir>
 python trainval.py -e pretrain_miniin_resnet50 -sb ./logs/pretrain_miniin_resnet50 -d dataset_dir
 python trainval.py -e pretrain_miniin_densenet121 -sb ./logs/pretrain_miniin_densenet121 -d dataset_dir
 python trainval.py -e pretrain_miniin_wrn50_2 -sb ./logs/pretrain_miniin_wrn50_2 -d dataset_dir
+python trainval.py -e pretrain_tieredin_wrn -sb ./logs/pretrain_tieredin_wrn -d dataset_dir
+
 ```
 where `<datadir>` is the directory where the data is saved.
 

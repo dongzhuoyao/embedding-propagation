@@ -25,8 +25,7 @@ class EpisodicTieredImagenet(EpisodicDataset):
         label_path = os.path.join(self.data_root, "%s_labels.pkl" %(split))
         with open(img_path, 'rb') as infile:
             self.features = pkl.load(infile, encoding="bytes")
-        with open(label_path, 'rb') as infile:
-            labels = pkl.load(infile, encoding="bytes")[b'label_specific']
+        labels = pkl.load(open(label_path, 'rb'))['label_specific']
         super().__init__(labels, sampler, size, transforms)
     
     def sample_images(self, indices):

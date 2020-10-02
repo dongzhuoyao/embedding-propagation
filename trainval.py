@@ -32,7 +32,7 @@ def trainval(exp_dict, savedir_base, datadir, reset=False,
     # get experiment directory
     exp_id = hu.hash_dict(exp_dict)
     savedir = os.path.join(savedir_base, exp_id)
-    logger.auto_set_dir(savedir)
+    logger.set_logger_dir(savedir)
 
     if reset:
         # delete and backup experiment
