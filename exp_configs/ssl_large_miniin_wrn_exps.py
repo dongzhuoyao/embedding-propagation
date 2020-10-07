@@ -67,7 +67,7 @@ EXP_GROUPS['ssl_large_miniin_wrn'] = []
 for dataset in [miniimagenet]:#[miniimagenet, tiered_imagenet]:
     for backbone in [wrn]:#[resnet12, conv4, wrn]:
         for embedding_prop in [True]:
-            for shot in [1, 5]:
+            for shot in [5]:#[1, 5]:
                 EXP_GROUPS['ssl_large_miniin_wrn'] += [{
                     'dataset_train_root': dataset["data_root"],
                     'dataset_val_root': dataset["data_root"],
@@ -117,6 +117,7 @@ for dataset in [miniimagenet]:#[miniimagenet, tiered_imagenet]:
 
                     # Hparams
                     "embedding_prop" : embedding_prop,
+                    "inductive": 0,
                     }]
 
 

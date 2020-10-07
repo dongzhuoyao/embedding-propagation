@@ -6,7 +6,7 @@ from .. import utils as ut
 from scipy import stats
 from embedding_propagation import LabelPropagation
 
-def ssl_get_next_best_indices(episode_dict, support_size_max=None):
+def ssl_get_next_best_indices(episode_dict, support_size_max=None,is_inductive=0):
     S = torch.from_numpy(episode_dict["support_so_far"]["samples"]).cuda()
     Q = torch.from_numpy(episode_dict["query"]["samples"]).cuda()
     U = torch.from_numpy(episode_dict["unlabeled"]["samples"]).cuda()
@@ -14,13 +14,19 @@ def ssl_get_next_best_indices(episode_dict, support_size_max=None):
     nclasses = int(S_labels.max() + 1)
     Q_labels = torch.zeros(episode_dict["query"]["samples"].shape[0], dtype=S_labels.dtype).cuda() + nclasses
     U_labels = torch.zeros(episode_dict["unlabeled"]["samples"].shape[0], dtype=S_labels.dtype).cuda() + nclasses
-    A_labels = torch.cat([S_labels, Q_labels, U_labels], 0)
-     
-    SQU = torch.cat([S, Q, U], dim=0) # Information gain is measured in the whole system
-    
+
+
     # train label_prop
     lp = LabelPropagation(balanced=True)
-    logits = lp(SQU, A_labels, nclasses)
+
+    if is_inductive:
+        A_labels = torch.cat([S_labels, U_labels], 0)
+        SQU = torch.cat([S, U], dim=0) # Information gain is measured in the whole system
+        logits = lp(SQU, A_labels, nclasses)
+    else:
+        A_labels = torch.cat([S_labels, Q_labels, U_labels], 0)
+        SQU = torch.cat([S, Q, U], dim=0)  # Information gain is measured in the whole system
+        logits = lp(SQU, A_labels, nclasses)
 
     U_logits = logits[-U.shape[0]:]
     # modify the labels of the unlabeled

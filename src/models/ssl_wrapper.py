@@ -154,14 +154,29 @@ class SSLWrapper(BaseWrapper):
         return episode_dict
 
     def predict_on_batch(self, episode_dict, support_size_max=None):
+        is_inductive = self.exp_dict.get("inductive")#default 0
+
         ind_selected = sm.get_indices(selection_method="ssl",
                                     episode_dict=episode_dict,
-                                    support_size_max=support_size_max)
+                                    support_size_max=support_size_max,is_inductive=is_inductive)
         episode_dict = update_episode_dict(ind_selected, episode_dict)
-        pred_labels = pm.get_predictions(predict_method=self.predict_method,
-                                         episode_dict=episode_dict)
-       
-        return pred_labels
+
+        if is_inductive:
+            episode_dict_copy = copy.deepcopy(episode_dict)
+            pred_labels = []
+            for q_id in range(episode_dict['query']['labels'].shape[0]):
+                episode_dict_1query = copy.deepcopy(episode_dict)
+                episode_dict_1query['query']['samples'] = episode_dict['query']['samples'][q_id:q_id + 1]  # keep dim
+                episode_dict_1query['query']['labels']= episode_dict['query']['labels'][q_id:q_id+1]#keep dim
+                pred_label_1query = pm.get_predictions(predict_method=self.predict_method,
+                                                 episode_dict=episode_dict_1query)
+                pred_labels.append(int(pred_label_1query))
+            pred_labels = np.asarray(pred_labels)
+            return pred_labels
+        else:
+            pred_labels = pm.get_predictions(predict_method=self.predict_method,
+                                             episode_dict=episode_dict)
+            return pred_labels
 
     def val_on_batch(self, batch):
         # if self.exp_dict['ora']

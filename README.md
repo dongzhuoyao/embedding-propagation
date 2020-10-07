@@ -69,6 +69,7 @@ In `exp_configs/finetune_exps.py`, set `"pretrained_weights_root": ./logs/pretra
 ```
 python3 trainval.py -e finetune -sb ./logs/finetuning -d <datadir>
 python trainval.py -e  finetune_miniin_wrn -sb ./logs/finetune_miniin_wrn -d dataset_dir
+python trainval.py -e  finetune_tieredin_wrn -sb ./logs/finetune_tieredin_wrn -d dataset_dir
 ```
 
 #### 3. SSL experirments with 100 unlabeled
@@ -78,6 +79,7 @@ In `exp_configs/ssl_exps.py`, set `"pretrained_weights_root": ./logs/finetuning/
 ```
 python3 trainval.py -e ssl_large -sb ./logs/ssl/ -d <datadir>
 python trainval.py -e ssl_large_miniin_wrn -sb ./logs/ssl_large_miniin_wrn/ -d dataset_dir
+python trainval.py -e ssl_large_inductive_miniin_wrn -sb ./logs/ssl_large_inductive_miniin_wrn/ -d dataset_dir
 ```
 
 #### 4. SSL experirments with 20-100% unlabeled
