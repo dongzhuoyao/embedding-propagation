@@ -63,6 +63,7 @@ class FinetuneWrapper(BaseWrapper):
                             best_accuracy = accuracy
                     except:
                         continue
+            print(best_accuracy)
             assert(best_accuracy > 0.1)
             print("Finetuning %s with original accuracy : %f" %(base_path, best_accuracy))
             self.model.load_state_dict(torch.load(best_path)['model'], strict=False)

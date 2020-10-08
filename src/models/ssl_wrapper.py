@@ -162,7 +162,6 @@ class SSLWrapper(BaseWrapper):
         episode_dict = update_episode_dict(ind_selected, episode_dict)
 
         if is_inductive:
-            episode_dict_copy = copy.deepcopy(episode_dict)
             pred_labels = []
             for q_id in range(episode_dict['query']['labels'].shape[0]):
                 episode_dict_1query = copy.deepcopy(episode_dict)
