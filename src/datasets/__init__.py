@@ -61,6 +61,12 @@ def get_dataset(dataset_name,
                                        transforms=transform_func)
     elif dataset_name == "cub":
         dataset = NonEpisodicCUB(data_root, split, transform_func)
+    elif dataset_name == "cars":
+        dataset = NonEpisodicCUB(data_root, split, transform_func)
+    elif dataset_name == "places":
+        dataset = NonEpisodicCUB(data_root, split, transform_func)
+    elif dataset_name == "platae":
+        dataset = NonEpisodicCUB(data_root, split, transform_func)
     elif dataset_name == "rotated_cub":
         dataset = RotatedNonEpisodicCUB(data_root, split, transform_func)
     elif dataset_name == "episodic_cub":
