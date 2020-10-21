@@ -1,3 +1,8 @@
+```
+conda create --name epnet python=3.7
+conda install pytorch==1.5  torchvision cudatoolkit=10.1 -c pytorch
+```
+
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
