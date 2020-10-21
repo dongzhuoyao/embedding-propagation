@@ -62,6 +62,7 @@ def get_dataset(dataset_name,
     elif dataset_name == "cub":
         dataset = NonEpisodicCUB(data_root, split, transform_func)
     elif dataset_name == "cars":
+        raise
         dataset = NonEpisodicCUB(data_root, split, transform_func)
     elif dataset_name == "places":
         dataset = NonEpisodicCUB(data_root, split, transform_func)
@@ -73,6 +74,13 @@ def get_dataset(dataset_name,
         few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
         dataset = EpisodicCUB(data_root=data_root,
                               split=split, 
+                              sampler=few_shot_sampler,
+                              size=n_iters,
+                              transforms=transform_func)
+    elif dataset_name == "episodic_cars":
+        few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
+        dataset = EpisodicCUB(data_root=data_root,
+                              split=split,
                               sampler=few_shot_sampler,
                               size=n_iters,
                               transforms=transform_func)
