@@ -10,11 +10,11 @@ from PIL import Image
 import numpy
 import pickle,cv2
 
-class EpisodicCub(EpisodicDataset):
+class EpisodicPlaces(EpisodicDataset):
     h = 84
     w = 84
     c = 3
-    name="Cub"
+    name="Places"
     task="cls"
     split_paths = {"train":"base", "val":"val", "valid":"val", "test":"novel"}
     def __init__(self, data_root, split, sampler, size, transforms):
@@ -41,7 +41,7 @@ if __name__ == '__main__':
                                                  torchvision.transforms.Resize((84,84)),
                                                  torchvision.transforms.ToTensor(),
                                                 ])
-    dataset = EpisodicCub("cub","train", sampler, 10, transforms)
+    dataset = EpisodicPlaces("places","train", sampler, 10, transforms)
     loader = DataLoader(dataset, batch_size=1, collate_fn=lambda x: x)
     if False:
         for batch in loader:

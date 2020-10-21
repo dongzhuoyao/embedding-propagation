@@ -18,7 +18,16 @@ from . import finetune_miniin_wrn50_2_exps
 from . import ssl_large_miniin_wrn_exps
 from . import ssl_large_inductive_miniin_wrn_exps
 from . import ssl_large_inductive_tieredin_wrn_exps
+
 from . import ssl_large_inductive_miniin_cars_wrn_exps
+from . import ssl_large_inductive_miniin_cub_wrn_exps
+from . import ssl_large_inductive_miniin_places_wrn_exps
+from . import ssl_large_inductive_miniin_plantae_wrn_exps
+
+from . import ssl_large_inductive_tieredin_cars_wrn_exps
+from . import ssl_large_inductive_tieredin_cub_wrn_exps
+from . import ssl_large_inductive_tieredin_places_wrn_exps
+from . import ssl_large_inductive_tieredin_plantae_wrn_exps
 
 
 EXP_GROUPS = {}
@@ -47,7 +56,16 @@ EXP_GROUPS.update(finetune_tieredin_wrn_exps.EXP_GROUPS)
 EXP_GROUPS.update(ssl_large_miniin_wrn_exps.EXP_GROUPS)
 EXP_GROUPS.update(ssl_large_inductive_miniin_wrn_exps.EXP_GROUPS)
 EXP_GROUPS.update(ssl_large_inductive_tieredin_wrn_exps.EXP_GROUPS)
-EXP_GROUPS.update(ssl_large_inductive_miniin_cars_wrn_exps.EXP_GROUPS)
 
+EXP_GROUPS.update(ssl_large_inductive_miniin_cars_wrn_exps.EXP_GROUPS)
+EXP_GROUPS.update(ssl_large_inductive_miniin_cub_wrn_exps.EXP_GROUPS)
+EXP_GROUPS.update(ssl_large_inductive_miniin_places_wrn_exps.EXP_GROUPS)
+EXP_GROUPS.update(ssl_large_inductive_miniin_plantae_wrn_exps.EXP_GROUPS)
+
+
+EXP_GROUPS.update(ssl_large_inductive_tieredin_cars_wrn_exps.EXP_GROUPS)
+EXP_GROUPS.update(ssl_large_inductive_tieredin_cub_wrn_exps.EXP_GROUPS)
+EXP_GROUPS.update(ssl_large_inductive_tieredin_places_wrn_exps.EXP_GROUPS)
+EXP_GROUPS.update(ssl_large_inductive_tieredin_plantae_wrn_exps.EXP_GROUPS)
 
 

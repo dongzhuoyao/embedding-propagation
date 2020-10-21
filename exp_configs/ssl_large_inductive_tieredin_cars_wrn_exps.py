@@ -142,7 +142,7 @@ for dataset in [cars]:#[miniimagenet, tiered_imagenet]:
                     "query_size_test": 15,
                     "unlabeled_size_test": 20,
                     "predict_method": "labelprop",
-                    "finetuned_weights_root": "./logs/finetune_miniin_wrn",
+                    "finetuned_weights_root": "./logs/finetune_tieredin_wrn",
 
                     # Hparams
                     "embedding_prop" : embedding_prop,

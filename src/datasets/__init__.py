@@ -16,7 +16,9 @@ from .miniimagenet import NonEpisodicMiniImagenet, RotatedNonEpisodicMiniImagene
 from .episodic_tiered_imagenet import EpisodicTieredImagenet
 from .tiered_imagenet import RotatedNonEpisodicTieredImagenet
 from .cub import RotatedNonEpisodicCUB, NonEpisodicCUB
-from .episodic_cub import EpisodicCUB
+from .episodic_cub import EpisodicCub
+from .episodic_places import EpisodicPlaces
+from .episodic_plantae import EpisodicPlantae
 from .episodic_cars import EpisodicCars
 from .episodic_tiered_imagenet import EpisodicTieredImagenet
 from .tiered_imagenet import RotatedNonEpisodicTieredImagenet, NonEpisodicTieredImagenet
@@ -71,16 +73,37 @@ def get_dataset(dataset_name,
         dataset = NonEpisodicCUB(data_root, split, transform_func)
     elif dataset_name == "rotated_cub":
         dataset = RotatedNonEpisodicCUB(data_root, split, transform_func)
+    elif dataset_name == "episodic_cars":
+        few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
+        dataset = EpisodicCars(data_root=data_root,
+                              split=split,
+                              sampler=few_shot_sampler,
+                              size=n_iters,
+                              transforms=transform_func)
     elif dataset_name == "episodic_cub":
         few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
-        dataset = EpisodicCUB(data_root=data_root,
-                              split=split, 
+        dataset = EpisodicCub(data_root=data_root,
+                              split=split,
                               sampler=few_shot_sampler,
                               size=n_iters,
                               transforms=transform_func)
     elif dataset_name == "episodic_cars":
         few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
         dataset = EpisodicCars(data_root=data_root,
+                              split=split,
+                              sampler=few_shot_sampler,
+                              size=n_iters,
+                              transforms=transform_func)
+    elif dataset_name == "episodic_places":
+        few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
+        dataset = EpisodicPlaces(data_root=data_root,
+                              split=split,
+                              sampler=few_shot_sampler,
+                              size=n_iters,
+                              transforms=transform_func)
+    elif dataset_name == "episodic_plantae":
+        few_shot_sampler = FewShotSampler(classes, support_size, query_size, unlabeled_size)
+        dataset = EpisodicPlantae(data_root=data_root,
                               split=split,
                               sampler=few_shot_sampler,
                               size=n_iters,
