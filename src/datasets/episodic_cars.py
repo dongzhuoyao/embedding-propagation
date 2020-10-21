@@ -8,6 +8,7 @@ import os
 import numpy as np
 from PIL import Image
 import numpy
+import pickle,cv2
 
 class EpisodicCars(EpisodicDataset):
     h = 84
@@ -18,16 +19,17 @@ class EpisodicCars(EpisodicDataset):
     split_paths = {"train":"base", "val":"val", "valid":"val", "test":"novel"}
     def __init__(self, data_root, split, sampler, size, transforms):
         self.data_root = data_root
-        self.split = split
-        with open(os.path.join(self.data_root, "few_shot_lists", "%s.json" %self.split_paths[split]), 'r') as infile:
-            self.metadata = json.load(infile)
+        self.split = "novel"#always read novel, not flexible here
+        with open(os.path.join(data_root, "{}.pkl".format(self.split)), 'rb') as f:
+            self.metadata = pickle.load(f)
         labels = np.array(self.metadata['image_labels'])
         label_map = {l: i for i, l in enumerate(sorted(np.unique(labels)))}
         labels = np.array([label_map[l] for l in labels])
         super().__init__(labels, sampler, size, transforms)
     
     def sample_images(self, indices):
-        return [np.array(Image.open(self.metadata['image_names'][i]).convert("RGB")) for i in indices]
+        #return [np.array(Image.open(self.metadata['image_names'][i]).convert("RGB")) for i in indices]
+        return [cv2.imdecode(self.metadata['image_names'][i], cv2.IMREAD_COLOR)[..., ::-1]for i in indices]
 
     def __iter__(self):
         return super().__iter__()

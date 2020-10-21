@@ -67,7 +67,7 @@ class EpisodicMiniImagenetPkl(EpisodicDataset):
         label_names = data["class_dict"].keys()
         labels = np.zeros((self.features.shape[0],), dtype=int)
         for i, name in enumerate(sorted(label_names)):
-            labels[np.array(data['class_dict'][name])] = i
+            labels[np.array(data['class_dict'][name])] = i#index from 0
         del(data)
         super().__init__(labels, sampler, size, transforms)
 

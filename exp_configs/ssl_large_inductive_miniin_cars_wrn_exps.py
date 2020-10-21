@@ -63,11 +63,11 @@ cub = {
 
 cars = {
     "dataset": "cars",
-    "n_classes": -1,
+    "n_classes": 49,
     "dataset_train": "episodic_cars",
     "dataset_val": "episodic_cars",
     "dataset_test": "episodic_cars",
-    'data_root':'CUB_200_2011'
+    'data_root':'cars'
 }
 
 

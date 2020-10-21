@@ -68,19 +68,31 @@ class SSLWrapper(BaseWrapper):
                 else:
                     support_size_needed = exp_dict['support_size_train']
 
+                """
                 if (loaded_exp_dict["model"]["name"] == 'finetuning' and 
                     loaded_exp_dict["dataset_train"].split('_')[-1] == exp_dict["dataset_train"].split('_')[-1] and 
                     loaded_exp_dict["model"]["backbone"] == exp_dict['model']["backbone"] and
-                    loaded_exp_dict['n_classes'] == exp_dict["n_classes"] and
+                    #loaded_exp_dict['n_classes'] == exp_dict["n_classes"] and, maybe different because cross-domain evaluation.
                     loaded_exp_dict['support_size_train'] == support_size_needed,
                     loaded_exp_dict["embedding_prop"] == exp_dict["embedding_prop"]):
+                """
+                if True:
                     
                     model_path = os.path.join(base_path, 'checkpoint_best.pth')
 
                     try:
                         print("Attempting to load ", model_path)
                         accuracy = hu.load_pkl(pkl_path)[-1]["val_accuracy"]
-                        self.model.load_state_dict(torch.load(model_path)['model'], strict=False)
+                        state = torch.load(model_path)['model']
+                        state_keys = list(state.keys())
+                        for i, key in enumerate(state_keys):
+                            # module. to be compatible to DP pretraining
+                            # _resnet50->_model, history problem!
+                            newkey = key
+                            state[newkey] = state.pop(key)
+                            if 'classifier' in newkey:
+                                state.pop(newkey)
+                        self.model.load_state_dict(state, strict=False)
                         if accuracy > best_accuracy:
                             best_path = os.path.join(base_path, 'checkpoint_best.pth')
                             best_accuracy = accuracy
@@ -89,7 +101,18 @@ class SSLWrapper(BaseWrapper):
                    
             assert(best_accuracy > 0.1)
             print("Finetuning %s with original accuracy : %f" %(base_path, best_accuracy))
-            self.model.load_state_dict(torch.load(best_path)['model'], strict=False)
+
+            state = torch.load(model_path)['model']
+            state_keys = list(state.keys())
+            for i, key in enumerate(state_keys):
+                # module. to be compatible to DP pretraining
+                # _resnet50->_model, history problem!
+                newkey = key
+                state[newkey] = state.pop(key)
+                if 'classifier' in newkey:
+                    state.pop(newkey)
+            self.model.load_state_dict(state, strict=False)
+
         self.best_accuracy = best_accuracy
         self.acc_sum = 0.0
         self.n_count = 0

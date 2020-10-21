@@ -31,7 +31,7 @@ class EpisodicDataset(Dataset):
         self.indices = np.arange(len(labels))
         self.transforms = transforms
         self.reshuffle()
-        c = size
+        self.size = size
     
     def reshuffle(self):
         """
