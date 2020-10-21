@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="b7493632-7fe5-4ae9-b802-6145ca16a129" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/embedding-propagation.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/embedding-propagation.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp_configs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp_configs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exp_configs/ssl_large_inductive_cars_wrn_exps.py" beforeDir="false" afterPath="$PROJECT_DIR$/exp_configs/ssl_large_inductive_miniin_cars_wrn_exps.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="JupyterTrust" id="eef5b235-1339-44c9-8667-f810f8cc897a" />
+  <component name="ProjectId" id="1iupFtsUdEVyrCYQXez7NS7R231" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="trainval" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="embedding-propagation" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trainval.py" />
+      <option name="PARAMETERS" value="-e ssl_large_inductive_miniin_cars_wrn -sb ./logs/ssl_large_inductive_miniin_cars_wrn/ -d dataset_dir" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.trainval" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b7493632-7fe5-4ae9-b802-6145ca16a129" name="Default Changelist" comment="" />
+      <created>1602767230540</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602767230540</updated>
+      <workItem from="1602767231675" duration="3021000" />
+      <workItem from="1603216129798" duration="1470000" />
+      <workItem from="1603286425909" duration="981000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1867" y="42" key="#Deployment" timestamp="1603287455648">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state x="320" y="115" key="#Deployment/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603286137640" />
+    <state x="1867" y="42" key="#Deployment/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603287455648" />
+    <state x="1685" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1603287021855">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603286099773" />
+    <state x="1685" y="38" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603287021855" />
+    <state x="1984" y="136" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1603286368617">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state x="408" y="193" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603106736876" />
+    <state x="1984" y="136" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603286368617" />
+    <state width="1878" height="245" key="GridCell.Tab.0.bottom" timestamp="1603287377672">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603286222546" />
+    <state width="1878" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603287377672" />
+    <state width="1878" height="245" key="GridCell.Tab.0.center" timestamp="1603287377670">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603286222544" />
+    <state width="1878" height="245" key="GridCell.Tab.0.center/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603287377670" />
+    <state width="1878" height="245" key="GridCell.Tab.0.left" timestamp="1603287377669">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603286222543" />
+    <state width="1878" height="245" key="GridCell.Tab.0.left/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603287377669" />
+    <state width="1878" height="245" key="GridCell.Tab.0.right" timestamp="1603287377671">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603286222545" />
+    <state width="1878" height="245" key="GridCell.Tab.0.right/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603287377671" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1602769213873">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1602769213873" />
+    <state x="2107" y="170" width="586" height="548" key="find.popup" timestamp="1603287070545">
+      <screen x="1440" y="-96" width="1920" height="1080" />
+    </state>
+    <state x="2107" y="170" width="586" height="548" key="find.popup/0.0.1440.900/1440.-96.1920.1080@1440.-96.1920.1080" timestamp="1603287070545" />
+    <state x="610" y="187" key="ftp.server.browser" timestamp="1602769158658">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="610" y="187" key="ftp.server.browser/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1602769158658" />
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup" timestamp="1603286055683">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900/1440.-96.1920.1080@0.0.1440.900" timestamp="1603286055683" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/embedding_propagation$trainval.coverage" NAME="trainval Coverage Results" MODIFIED="1603287377648" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

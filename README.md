@@ -82,6 +82,7 @@ python3 trainval.py -e ssl_large -sb ./logs/ssl/ -d <datadir>
 python trainval.py -e ssl_large_miniin_wrn -sb ./logs/ssl_large_miniin_wrn/ -d dataset_dir
 python trainval.py -e ssl_large_inductive_miniin_wrn -sb ./logs/ssl_large_inductive_miniin_wrn/ -d dataset_dir
 python trainval.py -e ssl_large_inductive_tieredin_wrn -sb ./logs/ssl_large_inductive_tieredin_wrn/ -d dataset_dir
+python trainval.py -e ssl_large_inductive_miniin_cars_wrn -sb ./logs/ssl_large_inductive_miniin_cars_wrn/ -d dataset_dir
 ```
 
 #### 4. SSL experirments with 20-100% unlabeled

@@ -72,13 +72,13 @@ cars = {
 
 
 EXP_GROUPS = {}
-EXP_GROUPS['ssl_large_inductive_miniin_wrn'] = []
+EXP_GROUPS['ssl_large_inductive_miniin_cars_wrn'] = []
 # 12 exps
 for dataset in [miniimagenet]:#[miniimagenet, tiered_imagenet]:
     for backbone in [wrn]:#[resnet12, conv4, wrn]:
         for embedding_prop in [True]:
             for shot in [1,5]:#[1, 5]:
-                EXP_GROUPS['ssl_large_inductive_miniin_wrn'] += [{
+                EXP_GROUPS['ssl_large_inductive_miniin_cars_wrn'] += [{
                     'dataset_train_root': dataset["data_root"],
                     'dataset_val_root': dataset["data_root"],
                     'dataset_test_root': dataset["data_root"],
